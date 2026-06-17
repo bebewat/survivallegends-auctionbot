@@ -316,7 +316,7 @@ class AuctionView(discord.ui.View):
         await self.update_bid(interaction, 1000)
 
 
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=300)
 async def dynamic_updater():
     with sqlite3.connect(AUCTION_DB_PATH) as conn:
         cursor = conn.cursor()
